@@ -15,17 +15,17 @@
     justify-content: center;
     align-items: center;
 }
-.navItem {
+.navItems {
     margin: 2%;
     text-decoration: none;
     color: rgb(29, 30, 32);
     font-size: 25px;
     transition: color .4s;
 }
-.navItem:hover {
+.navItems:hover {
     color: rgb(150, 150, 150);
 }
-.navItem::after {
+.navItems::after {
     content: '';
     display: block;
     position: relative;
@@ -35,7 +35,87 @@
     background: #0060b9;
     transition: cubic-bezier(0,0,.25,1) .4s;
 }
-.navItem:hover::after {
+.navItems:hover::after {
     width: 100%;
     left: 0;
+}
+
+label {
+    display: none;
+    flex-direction: column;
+    width: 70px;
+    cursor: pointer;
+}
+label span {
+    background: rgb(29, 30, 32);
+    border-radius: 10px;
+    height: 7px;
+    margin: 7px 0;
+    transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+span:nth-of-type(1) {
+    width: 50%;
+}
+span:nth-of-type(2) {
+    width: 100%;
+}
+span:nth-of-type(3) {
+    width: 75%;
+
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked~span {
+    background-color: #b90000;
+}
+
+input[type="checkbox"]:checked~span:nth-of-type(1) {
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(8px, 0px);
+}
+
+input[type="checkbox"]:checked~span:nth-of-type(2) {
+    transform-origin: top;
+    transform: rotatez(-45deg);
+}
+
+input[type="checkbox"]:checked~span:nth-of-type(3) {
+    transform-origin: bottom;
+    width: 50%;
+    transform: translate(30px, -11px) rotatez(45deg);
+
+}
+
+@media screen and (max-width: 700px) {
+    label {
+        display: flex;
+        position: absolute;
+        right: 5%;
+    }
+    .navItems {
+        display: none;
+    }
+}
+
+.sideMenu {
+    position: fixed;
+    display: flex;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background-image: linear-gradient(120deg, #E7F0FD, #6BA9EF);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: left .4s;
+    z-index: 999 !important;
+}
+.sideMenuItems {
+    text-decoration: none;
+    color: rgb(24, 29, 37);
+    font-size: 25px;
+    margin: 15% 0;
 }
