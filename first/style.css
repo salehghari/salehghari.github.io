@@ -222,7 +222,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     grid-template-columns: 1fr;
     align-content: center;
 }
-.myPic {
+#myPic {
     box-shadow: 0px 0px 50px 5px #00244d;
     user-select: none;
     height: 30vmin;
@@ -231,7 +231,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     border: 4px solid #05111fdc;
     margin-top: 5%;
 }
-.myProfession{
+#myProfession{
     font-weight: 400;
     font-size: 5vmin;
 }
