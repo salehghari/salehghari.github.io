@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#305a95">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#305a95">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#305a95">
     <title>First | GitHub Page</title>
 </head>
 <body>
@@ -40,10 +46,10 @@
         </div>
     </header>
     <div class="home">
-        <img id="myPic" src="media/my-picture.jpg" alt="My Picture">
+        <img class="myPic" src="media/my-picture.jpg" alt="My Picture">
         <div class="homeText">
-            <h1 id="myName">Saleh Ghari</h1>
-            <h2 id="myProfession">Web Developer</h2>
+            <h1 class="myName">Saleh Ghari</h1>
+            <h2 class="myProfession">Web Developer</h2>
         </div>
     </div>
     <div class="about">
@@ -51,17 +57,19 @@
         <p class="aboutDescription">I'm a student and I'm interested in web development. When away from my computer, my hobbies include swimming, cooking and fishing.</p>
     </div>
     <div class="skills">
-        <h2 id="skillsTitle">Skills</h2>
+        <h2 class="skillsTitle">Skills</h2>
         <div class="skillCards">
             <ul class="skillsList">
                 <li>
                     <h3 class="skillCategories">
                         Frontend
+                        <img class="skillsImage" src="media/frontend-icon.png" alt="Frontend Icon">
                     </h3>
                 </li>
                 <li>HTML</li>
                 <li>CSS</li>
-                <li>JavaScript</li>
+                <li>JavaScript ES6</li>
+                <li>BootStrap 5</li>
                 <li>I will learn React soon, too!</li>
             </ul>
         </div>
