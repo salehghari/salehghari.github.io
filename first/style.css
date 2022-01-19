@@ -10,9 +10,6 @@ a {
     text-decoration: none;
     overflow: hidden;
 }
-p {
-    font-size: 5vmin;
-}
 h1 {
     font-size: 9vmin;
     margin: 0.5em;
@@ -41,6 +38,7 @@ li {
     overflow: hidden;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    z-index: 10;
 }
 .navItems {
     margin: 2%;
@@ -79,15 +77,14 @@ label span {
     margin: 6px 0;
     transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
-span:nth-of-type(1) {
+.menuSpan:nth-of-type(1) {
     width: 50%;
 }
-span:nth-of-type(2) {
+.menuSpan:nth-of-type(2) {
     width: 100%;
 }
-span:nth-of-type(3) {
+.menuSpan:nth-of-type(3) {
     width: 75%;
-
 }
 
 input[type="checkbox"] {
@@ -154,6 +151,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
 }
 
 .skills {
+    background-image: linear-gradient(90deg, #696969, #3d72b4);
     height: 100vh;
     background-color: #d2d3d6;
     display: flex;
@@ -256,4 +254,106 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
 }
 .aboutHeader, .aboutDescription {
     color: #ebebeb;
+}
+.aboutDescription {
+    font-size: 5vmin;
+}
+.projects {
+    background-image: linear-gradient(90deg, #696969, #3d72b4);
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+}
+.projectsTitle {
+    color: rgb(29, 30, 32);
+}
+.projectPictures {
+    width: 555px;
+    height: 347px;
+    border: 2px solid rgb(29, 30, 32);
+}
+
+.slideShow {
+    position: relative;
+    margin-bottom: 20%;
+    margin-top: 5%;
+}
+
+.slide {
+    display: none;
+    position: relative;
+    animation: fade 0.5s;
+}
+@keyframes fade {
+    0%  { opacity: 0; }
+    100%  { opacity: 1; }
+}
+.slide.active {
+    display: block;
+}
+
+.slide a {
+    background-color: #2580e96c;
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    min-height: 100px;
+    transition: min-height 0.4s, font-size 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    cursor: pointer;
+}
+.slide a:hover{
+    min-height: 100%;
+    font-size: 7rem;
+}
+.slide a p {
+    margin-bottom: 0;
+    color: rgb(255, 255, 255);
+}
+
+.prev, .next {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    top:50%;
+    margin-top: -40px;
+    font-size: 30px;
+}
+.prev:active, .next:active {
+    background-color: rgb(0, 0, 0);
+}
+.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0;
+}
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.points {
+    display: flex;
+    justify-content: center;
+    margin-top: 7px;
+}
+.points span{
+    width: 15px;
+    height: 15px;
+    margin: 0 2px;
+    display: inline-block;
+    background-color: rgb(238, 238, 238);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.points span.active {
+    background-color: rgb(151, 151, 151);
+}
+
+span::selection,
+.slideShow > div::selection {
+    background-color: rgba(0, 0, 0, 0);
 }
