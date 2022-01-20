@@ -166,7 +166,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     height: 55vmin;
     background-color: #ffffff;
     border: 3px solid #1e242c;
-    border-radius: 50px;
+    border-radius: 40px;
     overflow: hidden;
 }
 .skillsList {
@@ -176,6 +176,54 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     margin-left: 5%;
     width: 4vmin;
     height: 4vmin;
+}
+.projectPictures {
+    width: 555px;
+    height: 347px;
+    border: 2px solid rgb(29, 30, 32);
+    border-radius: 15px;
+}
+.container {
+    display: none;
+    overflow: auto;
+    flex: none;
+    margin-bottom: 20%;
+    scroll-snap-type: x mandatory;
+}
+.container.x {
+    width: 555px;
+    height: 365px;
+    flex-flow: row nowrap;
+    overflow-y: hidden;
+}
+.container > div {
+    text-align: center;
+    scroll-snap-align: center;
+    flex: none;
+}
+  
+.x.container > div {
+    overflow-y: hidden;
+}
+.linkSectionRes {
+    position: relative;
+    font-size: 3rem;
+    color: #2581e9;
+}
+.projectTitlesRes {
+    height: 37px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #2581e948;
+    line-height: 37px;
+}
+.projectTitlesRes:hover {
+    text-shadow: 0px 0px 8px #004fa8;
+}
+.swipeText {
+    display: none;
+    font-size: 5vmin;
+    margin-top: -50px;
 }
 @media screen and (max-width: 900px) {
     label {
@@ -193,6 +241,30 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     .fab {
         margin: 0 2%;
     }
+    .x.container > div {
+        width: 280.275px;
+        height: 184.325px;
+    }
+    .projectPictures {
+        width: 277.5px;
+        height: 182.5px;
+    }
+    .container.x {
+        width: 277.5px;
+        height: 182.5px;
+    }
+    .container {
+        display: flex;
+    }
+    .slideShow {
+        display: none;
+    }
+    .linkSectionRes {
+        top: -45px;
+    }
+    .swipeText {
+        display: block;
+    }
 }
 @media screen and (max-width: 450px) {
     .navbar {
@@ -203,6 +275,31 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     }
     li {
         font-size: 3.5vmin;
+    }
+    .projectPictures {
+        width: 277.5px;
+        height: 182.5px;
+    }
+}
+@media screen and (min-width: 450px) {
+    .x.container > div {
+        width: 420.4125px;
+        height: 276.4875px;
+    }
+    .container.x {
+        width: 416.25px;
+        height: 273.75px;
+    }
+    .projectPictures {
+        width: 416.25px;
+        height: 273.75px;
+    }
+    .projectTitlesRes {
+        height: 55px;
+        line-height: 55px;
+    }
+    .linkSectionRes {
+        top: -65px;
     }
 }
 @media screen and (max-height: 350px) {
@@ -267,11 +364,6 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
 .projectsTitle {
     color: rgb(29, 30, 32);
 }
-.projectPictures {
-    width: 555px;
-    height: 347px;
-    border: 2px solid rgb(29, 30, 32);
-}
 
 .slideShow {
     position: relative;
@@ -291,8 +383,11 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
 .slide.active {
     display: block;
 }
-
-.slide a {
+.projectPictures,
+.linkSection {
+    border-radius: 15px;
+}
+.linkSection {
     background-color: #2580e96c;
     position: absolute;
     bottom: 2px;
@@ -304,12 +399,13 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     align-items: center;
     font-size: 4rem;
     cursor: pointer;
+    box-shadow: inset 0px -10px 60px -10px rgb(0 0 0);
 }
-.slide a:hover{
+.linkSection:hover{
     min-height: 100%;
-    font-size: 7rem;
+    font-size: 5rem;
 }
-.slide a p {
+.projectTitles {
     margin-bottom: 0;
     color: rgb(255, 255, 255);
 }
@@ -322,9 +418,10 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     top:50%;
     margin-top: -40px;
     font-size: 30px;
+    cursor: pointer;
 }
 .prev:active, .next:active {
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.85);
 }
 .prev {
     left: 0;
