@@ -1,6 +1,8 @@
 const menuIcon = document.querySelector("#check");
 const sideMenu = document.querySelector(".sideMenu");
 const label = document.querySelector("#label");
+const myName = document.querySelector("#myName");
+const myProfession = document.querySelector("#myProfession");
 
 menuIcon.addEventListener("click", e => {
     if (menuIcon.checked == true){
@@ -16,7 +18,31 @@ window.onresize = window.onload = function() {
         sideMenu.style.left = "-100%";
     }
 }
-// functions
+
+var i = 0;
+var txt = "Saleh Ghari";
+var j = 0;
+var Profession = "Web Developer";
+
+function typeMyName() {
+  if (i < txt.length) {
+    myName.innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeMyName, 150);
+    if(txt.charAt(i) == "i") {
+        function typeMyProfession() {
+          if (j < Profession.length) {
+            myProfession.innerHTML += Profession.charAt(j);
+            j++;
+            setTimeout(typeMyProfession, 80);
+          }
+        }
+        typeMyProfession()
+    }
+  }
+}
+typeMyName()
+
 function classSwitcher() {
     // slides
     slides.forEach(slide => slide.classList.remove("active"))
@@ -36,7 +62,7 @@ let goPrev = () => {
     classSwitcher()
 }
 
-// variables
+
 let active = 0
 let timer = 3000
 let slideshow = document.querySelector(".slideShow")
@@ -45,10 +71,10 @@ let points = document.querySelectorAll(".points > span")
 let prev = document.querySelector(".prev")
 let next = document.querySelector(".next")
 
-// setInterval
+
 let runSlideshow = setInterval(goNext, timer)
 
-// point event
+
 points.forEach((point, index) => {
     point.addEventListener("click", e => {
         active = index
@@ -56,13 +82,13 @@ points.forEach((point, index) => {
     })
 })
 
-// next event
+
 next.addEventListener("click", e => goNext())
-// previous event
+
 prev.addEventListener("click", e => goPrev())
 
-// mouseover
+
 slideshow.addEventListener("mouseover", e => clearInterval(runSlideshow))
-// mouseleave
+
 slideshow.addEventListener("mouseleave", e => runSlideshow = setInterval(goNext, timer))
 classSwitcher()
