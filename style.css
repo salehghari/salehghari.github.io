@@ -313,7 +313,7 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     }
 }
 .home {
-    background-image: url(media/background-image.jpg);
+    background-image: url(media/large-triangles.svg);
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -462,7 +462,7 @@ span::selection,
 }
 .snowflake {
     color: #fff;
-    font-size: 2rem;
+    font-size: 2vmin;
     text-shadow: 0 0 1px #000;
     pointer-events: none;
 }
