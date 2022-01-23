@@ -1,0 +1,47 @@
+body {
+    overflow-x: hidden;
+}
+.container {
+    width: 150vw;
+}
+.weather-wrapper {
+    height: 13rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.t1 {
+    background-color: rgb(75, 234, 255);;
+}
+.t2 {
+    background-color: rgb(92, 255, 179);
+}
+.t3 {
+    background-color: rgb(92, 255, 127);
+}
+.t4 {
+    background-color: rgb(193, 255, 92);
+}
+.t5 {
+    background-color: rgb(255, 239, 92);
+}
+p {
+    margin: 0;
+    font-size: 3vmin;
+}
+.btn {
+    width: 42px;
+    height: 38px;
+    margin-top: 10px;
+}
+.temperature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+@media only screen and (max-width: 1200px) and (min-width: 576px) {
+    .container {
+        max-width: 1200px;
+    }
+}
