@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    user-select: none;
 }
 
 .bg {
@@ -80,6 +81,9 @@ h1, h2 {
     line-height: 12vh;
     font-size: 6vmin;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+canvas {
+    color: rgb(255, 255, 255);
 }
 @media only screen and (max-height:555px){
     .result {

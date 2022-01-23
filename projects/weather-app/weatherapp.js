@@ -5,7 +5,7 @@ async function getWeather (city) {
     https://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=${city}`,
     {
         headers: {
-            "api-key" : "90c2393a6fa64f95a41bc2e99cae1b1b"
+            "api-key" : "9a631e40c9e04b1694e26d7c5211f32f"
         }
     })
     let data = await response.json()
