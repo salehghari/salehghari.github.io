@@ -3,7 +3,6 @@ const circle = document.querySelector(".circle");
 const result = document.querySelector(".result");
 const numbers = document.querySelectorAll("p");
 coordinates.addEventListener("click", e => {
-    clicked(e);
     circle.style.setProperty('--x', `${e.clientX}px`);
     circle.style.setProperty('--y', `${e.clientY}px`);
     const X = e.clientX / 37.936267
@@ -20,6 +19,9 @@ coordinates.addEventListener("click", e => {
     <h2>tan: ${tan}</h2>
     <h2>cot: ${cot}</h2>`
 })
+coordinates.addEventListener("mousemove", e => {
+    clicked(e);
+})
 numbers.forEach(number => {
     if(number.innerHTML.toString().length == 2) {
         number.classList = "two-digit-numbers-x"
@@ -28,8 +30,6 @@ numbers.forEach(number => {
 
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
-var ctxY = c.getContext("2d");
-var ctxX = c.getContext("2d");
 ctx.strokeStyle = "rgb(215, 215, 215)"
 
 function getMousePos (evt) {
