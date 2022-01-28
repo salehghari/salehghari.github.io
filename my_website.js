@@ -19,6 +19,13 @@ window.onresize = window.onload = function() {
     }
 }
 
+window.onscroll = () => {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("myBar").style.width = scrolled + "%";
+};
+
 var i = 0;
 var txt = "Saleh Ghari";
 var j = 0;

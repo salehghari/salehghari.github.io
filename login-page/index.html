@@ -5,38 +5,105 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Login & Sign up Page</title>
 </head>
-<body>
+<body style="background-color: #18181b;">
     <div class="container">
-        <div class="m-3"></div>
-        <div class="row-cols-2">
-            <div class="coll-md-8 mx-auto">
-                <h6>Username:
-                    <span id="username"><i>Please write something</i></span>
-                </h6>
-                <h6>Password:
-                    <span id="password"><i>Please select a password</i></span>
-                </h6>
+    <div class="m-2"></div>
+        <div class="buttons">
+            <button class="logInBtn">Log In</button>
+            <button class="signUpBtn">Sign Up</button>
+        </div>
+    </div>
+    <div class="center">
+        <div class="information mx-2 px-5 h-25 w-auto rounded text-center whiteText">
+            <h1 class="mt-2">Sign up and Login page application</h1>
+            <p class="mt-4">In this project I tried to do everything needed for a Login and Signup page. I got the theme color of this project from <a href="https://Twitch.com">Twitch</a> website!</p>
+        </div>
+    </div>
+    <div class="layout"></div>
+    <div class="center">
+        <!-- login form -->
+        <div class="logInForm coll-md-8 mx-2 mt-5">
+            <button class="close">
+                <svg width="100%" height="100%" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><g><path d="M8.5 10L4 5.5 5.5 4 10 8.5 14.5 4 16 5.5 11.5 10l4.5 4.5-1.5 1.5-4.5-4.5L5.5 16 4 14.5 8.5 10z"></path></g></svg>
+            </button>
+            <h6 class="font-weight-bold whiteText">Email:
+                <span id="email"><i>Your Email</i></span>
+            </h6>
+            <h6 class="font-weight-bold whiteText">Password:
+                <span id="password"><i>Your Password</i></span>
+            </h6>
+            <hr>
+            <form class="form">
+                <div class="form-group whiteText">
+                    <label for="Email">Email:</label>
+                    <input autocomplete="off" class="form-control" type="email" name="email" id="Email" placeholder="Email">
+                    <p class="invalid-feedback" id="email-alert"></p>
+                </div>
+                <div class="form-group whiteText">
+                    <label for="Password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="Password" placeholder="Password">
+                    <p class="invalid-feedback" id="password-alert"></p>
+                </div>
+                <div class="float-right my-3 font-weight-bolder whiteText">Show Password
+                    <input type="checkbox" id="checkbox">
+                </div>
                 <hr>
-                <form class="form">
-                    <div class="form-group">
-                        <label for="Username">Username:</label>
-                        <input class="form-control" type="text" name="username" id="Username" placeholder="Username">
-                        <p class="invalid-feedback" id="username-alert"></p>
+                <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+        <!-- sign up form -->
+        <div class="signUpForm coll-md-8 mx-2 mt-5">
+            <button class="close">
+                <svg width="100%" height="100%" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><g><path d="M8.5 10L4 5.5 5.5 4 10 8.5 14.5 4 16 5.5 11.5 10l4.5 4.5-1.5 1.5-4.5-4.5L5.5 16 4 14.5 8.5 10z"></path></g></svg>
+            </button>
+            <h6 class="font-weight-bold whiteText">Email:
+                <span id="email"><i>Your Email</i></span>
+            </h6>
+            <h6 class="font-weight-bold whiteText">Password:
+                <span id="password"><i>Your Password</i></span>
+            </h6>
+            <h6 class="font-weight-bold whiteText">First Name:
+                <span id="Fname"><i>Your First Name</i></span>
+            </h6>
+            <h6 class="font-weight-bold whiteText">Last Name:
+                <span id="Lname"><i>Your Last Name</i></span>
+            </h6>
+            <hr>
+            <form class="form">
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" class="form-control" id="FName" placeholder="First name">
                     </div>
-                    <div class="form-group">
-                        <label for="Password">Password:</label>
-                        <input class="form-control" type="password" name="password" id="Password" placeholder="Password">
-                        <p class="invalid-feedback" id="password-alert"></p>
+                    <div class="col">
+                        <input type="text" class="form-control" id="LName" placeholder="Last name">
                     </div>
-                    <div class="float-right my-3">Show Password
-                        <input type="checkbox" id="checkbox">
-                    </div>
-                    <hr>
-                    <input type="submit" name="submit" value="Submit" class="btn btn-success">
-                </form>
-            </div>
+                </div>
+                <div class="form-group whiteText">
+                    <label for="Email">Email:</label>
+                    <input autocomplete="off" class="form-control" type="email" name="email" id="Email" placeholder="Email">
+                    <p class="invalid-feedback" id="email-alert"></p>
+                </div>
+                <div class="form-group whiteText">
+                    <label for="Password">Password:</label>
+                    <input class="form-control" type="password" name="password" id="Password" placeholder="Password">
+                    <p class="invalid-feedback" id="password-alert"></p>
+                </div>
+                <div class="float-right my-3 font-weight-bolder whiteText">Show Password
+                    <input type="checkbox" id="checkbox">
+                </div>
+                <hr>
+                <input type="submit" name="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+    <div class="center">
+        <div class="note">
+            <span style="color: #efeff1;">*The information in these forms is not stored in any database</span>
+            <div class="tire"></div>
+            <div class="second-tire"></div>
         </div>
     </div>
     <script src="login.js"></script>

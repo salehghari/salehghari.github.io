@@ -5,13 +5,13 @@ async function getWeather (city) {
     https://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=${city}`,
     {
         headers: {
-            "api-key" : "9a631e40c9e04b1694e26d7c5211f32f"
+            "api-key" : "3787a13b94034ddd9241ea252217959c"
         }
     })
     let data = await response.json()
     let today = data.result.hava.dayList[0]
     let nowTemp = data.result.hava.summary.temp
-    let state = data.result.hava.state
+    let province = data.result.hava.state
     switch (today.condition) {
         case "آرام":
             today.color = "t1"
@@ -29,7 +29,7 @@ async function getWeather (city) {
             today.color = "t5"
             break;
         default:
-            today.color = "t1"
+            today.color = "t3"
             break;
     }
     app.innerHTML = `
@@ -39,7 +39,7 @@ async function getWeather (city) {
     </div>
     <div class="card-body text-center">
         <h2 id="cityTitle">شهر : ${city}</h2>
-        <h4 id="state">استان : ${state}</h4>
+        <h4 id="provinceTitle">استان : ${province}</h4>
         <small class="my-3 d-block">${today.condition}</small>
         <div class="temperature">
             <div>
@@ -53,13 +53,31 @@ async function getWeather (city) {
             </div>
         </div>
     </div>`
+    const provincesOfIran = ["یزد", "یاسوج", "همدان", "مشهد", "گرگان", "کرمانشاه", "کرمان", "کرج", "قم", "قزوین", "شیراز", "شهرکرد", "سنندج", "سمنان", "ساری", "زنجان", "زاهدان", "رشت", "خرم‌آباد", "تهران", "تبریز", "بیرجند", "بوشهر", "بندرعباس", "بجنورد", "ایلام", "اهواز", "اصفهان", "ارومیه", "اردبیل", "اراک"]
+    for(i = 0; i < provincesOfIran.length; i++) {
+        let Province = provincesOfIran[i];
+        let selectedProvince = document.querySelector("#province")
+        selectedProvince.innerHTML += `<option>${Province}</option>`;
+    }
+    for(i = 0; i < data.result.cityList.length; i++) {
+        let city = data.result.cityList[i].name;
+        let selectedCity = document.querySelector("#city")
+        selectedCity.innerHTML += `<option>${city}</option>`;
+    }
 }
 let defaultCity = "تهران"
-let city = document.querySelector("#city")
-let cityTitle = document.querySelector("#cityTitle")
-
-city.addEventListener("submit", e => {
-    e.preventDefault()
-    getWeather(e.target.city.value)
+province.addEventListener("change", e => {
+    getWeather(e.target.value)
+    let selectedProvince = document.querySelector("#province")
+    let selectedCity = document.querySelector("#city")
+    selectedProvince.innerHTML = `<option label="Select your province ...">Select your province ...</option>`;
+    selectedCity.innerHTML = ""
+})
+city.addEventListener("change", e => {
+    getWeather(e.target.value)
+    let selectedProvince = document.querySelector("#province")
+    let selectedCity = document.querySelector("#city")
+    selectedProvince.innerHTML = `<option label="Select your province ...">Select your province ...</option>`;
+    selectedCity.innerHTML = ""
 })
 getWeather(defaultCity)

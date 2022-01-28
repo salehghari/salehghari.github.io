@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +11,33 @@
 </head>
 <body>
     <div class="container">
-        <div class="w-50 mx-auto my-3">
-            <h1 class="text-center">Weather app</h1>
+        <div class="main mx-auto my-3">
+            <h1 class="text-center">Weather announcement app</h1>
+            <div style="margin-top: 5vh;" class="threeDCard purposeDescription">
+                <h3>In this project, I wanted to practice with the API. It occurred to me to use a free and fairly functional API.</h3>
+            </div>
+            <div style="margin-top: 4vh;" class="threeDCard description">
+                <p>This app works in such a way that by entering the titles of the province and city, it automatically gets the weather information of that province or city from the <a href="https://developers.parsijoo.ir">developers.parsijoo.ir</a> website and announces it in the shortest possible time.</p>
+            </div>
+            <div style="margin-top: 4vh;" class="threeDCard tools">
+                <h4>Tools :</h4>
+                <ul>
+                    <li>'Parsijoo' website for extracting api data</li>
+                    <li>Using javascript to insert data</li>
+                    <li>Bootstrap for styling</li>
+                </ul>
+            </div>
             <hr>
             <div class="col-md-7 mx-auto">
-                <form id="city" action="">
-                    <input name="city" placeholder="شهر.." class="form-control mb-2">
+                <form>
+                    <label>province</label>
+                    <select class="form-control" onmousedown="this.size=8;" onchange='this.size=0;' onblur="this.size=0;" id="province">
+                        <option label="Select your province ...">Select your province ...</option>
+                    </select>
+                    <label>city</label>
+                    <select class="form-control" onmousedown="this.size=5;" onchange='this.size=0;' onblur="this.size=0;" id="city">
+                        <option label="Select your city ...">Select your city ...</option>
+                    </select>
                 </form>
                 <div id="app">
                 </div>

@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    overflow-x: hidden;
+}
+hr{
+    background-color: #868686;
+}
+h1 {
+    font-size: 5vmin;
+}
+p {
+    font-size: 3vmin;
+}
+@media only screen and (max-width: 450px){
+    p {
+        font-size: 4vmin;
+    }
+}
+.whiteText {
+    color: #efeff1;
+}
+
+.signUpForm,
+.logInForm {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    background-color: #18181b;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    animation: appear .5s;
+}
+@keyframes appear {
+    0% {
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+.signUpBtn,
+.logInBtn {
+    margin: .4rem;
+    font-weight: 600;
+    border-radius: 0.4rem;
+    font-size: .9rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    color: #efeff1;
+    padding: 0 10px;
+}
+
+.layout {
+    display: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000085;
+    z-index: 9;
+}
+.signUpBtn {
+    background-color: #9147ff;
+}
+.logInBtn {
+    background-color: #3a3a3d;
+}
+.logInBtn:hover {
+    background-color: rgb(80, 80, 92);
+}
+.signUpBtn:hover {
+    background-color: #822fff;
+}
+input[type="checkbox"] {
+    cursor: pointer;
+}
+.close {
+    background-color: transparent;
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.close:hover {
+    background-color: rgb(107, 107, 107);
+    border-radius: 5px;
+}
+svg {
+    fill: #ffffff;
+}
+.note {
+    background-color: #822fff;
+    position: absolute;
+    bottom: 10%;
+    margin: 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    animation: move 6s infinite;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+@media only screen and (max-width :900px){
+    .tire {
+        display: none;
+    }
+    .second-tire {
+        display: none;
+    }
+    .note {
+        animation: none;
+    }
+}
+.tire {
+    background-image: url(../media/tire.svg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    user-select: none;
+}
+.second-tire {
+    background-image: url(../media/tire.svg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    user-select: none;
+    left: 420px;
+}
+.tire,
+.second-tire {
+    animation: rotateTires 2s infinite;
+}
+@keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+    33%{
+        transform: translateX(200px);
+    }
+    66% {
+        transform: translateX(-200px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+@keyframes rotateTires {
+    0% {
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.information {
+    background-color: #1f1f23;
+    position: absolute;
+}

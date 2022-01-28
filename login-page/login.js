@@ -1,73 +1,157 @@
-let form = document.querySelector(".form")
-let username = document.querySelector("#username")
-let password = document.querySelector("#password")
-let myinput = document.querySelector("#Password")
-let checkbox = document.querySelector("#checkbox")
-let up = /^[a-zA-Z][\w._]{5,23}$/
+let forms = document.querySelectorAll(".form");
+let emails = document.querySelectorAll("#email");
+let passwords = document.querySelectorAll("#password");
+let passwordinputs = document.querySelectorAll("#Password");
+let emailAlerts = document.querySelectorAll("#email-alert");
+let passwordAlerts = document.querySelectorAll("#password-alert");
+let checkboxes = document.querySelectorAll("#checkbox");
+let FName = document.querySelector("#FName");
+let LName = document.querySelector("#LName");
+let Fname = document.querySelector("#Fname");
+let Lname = document.querySelector("#Lname");
+let signUpBtn = document.querySelector(".signUpBtn");
+let layout = document.querySelector(".layout");
+let logInBtn = document.querySelector(".logInBtn");
+let logInForm = document.querySelector(".logInForm");
+let signUpForm = document.querySelector(".signUpForm");
+let closeBtns = document.querySelectorAll(".close");
 
-// evaluateUser => eu
-let eu = false
+let re = /^[a-zA-Z][\w._]{2,15}$/;
+let up = /\S+@\S+\.\S+/;
+signUpBtn.addEventListener("click", e => {
+    logInForm.style.display = "none";
+    signUpForm.style.display = "block";
+    layout.style.display = "block";
+})
+
+logInBtn.addEventListener("click", e => {
+    signUpForm.style.display = "none";
+    logInForm.style.display = "block";
+    layout.style.display = "block";
+})
+
+layout.addEventListener("click", e => {
+    signUpForm.style.display = "none";
+    logInForm.style.display = "none";
+    layout.style.display = "none";
+})
+
+// evaluateEmail => ee
+let ee = false;
 
 // evaluatePassword => ep
-let ep = 0
-
-form.addEventListener("submit", e => {
-    if(!(eu && ep === 5)) {
-        e.preventDefault()
-
-        if (!eu) {
-            form.username.classList.add("is-invalid")
-            document.querySelector("#username-alert").textContent = "Please write your username."
+let ep = 0;
+forms.forEach(form => {
+    form.addEventListener("submit", e => {
+        if(!(ee && ep === 5)) {
+            e.preventDefault();
+            if (!ee) {
+                emails.forEach(email => {
+                    form.email.classList.add("is-invalid");
+                })
+                emailAlerts.forEach(emailAlert => {
+                    emailAlert.textContent = "Please complete your email.";
+                })
+            }
+            if (ep !== 5) {
+                passwords.forEach(password => {
+                    form.password.classList.add("is-invalid");
+                })
+                passwordAlerts.forEach(passwordAlert => {
+                    passwordAlert.textContent = "Please complete your password.";
+                })
+            }
         }
-        if (ep !== 5) {
-            form.password.classList.add("is-invalid")
-            document.querySelector("#password-alert").textContent = "Please write your password."
-        }
-    }
+    })
 })
 
-form.username.addEventListener("keyup", e => {
+forms.forEach(form => {
+    emails.forEach(email => {
+        form.email.addEventListener("keyup", e => {
+            if(e.target.value) {
+                email.textContent = e.target.value.toLowerCase();
+                if (up.test(e.target.value)) {
+                    ee = true;
+                    e.target.classList.add("is-valid");
+                    e.target.classList.remove("is-invalid");
+                } else {
+                    e.target.classList.add("is-invalid");
+                }
+            } else {
+                email.innerHTML = '<i>Your Email</i>';
+            }
+        })
+    })
+})
+forms.forEach(form => {
+    passwords.forEach(password => {
+        form.password.addEventListener("keyup", e => {
+            if(e.target.value) {
+                password.textContent = "*".repeat(e.target.value.length)
+        
+                ep = 0
+                ep+= /[a-z]/.test(e.target.value) ? 1 : 0;
+                ep+= /[A-Z]/.test(e.target.value) ? 1 : 0;
+                ep+= /[0-9]/.test(e.target.value) ? 1 : 0;
+                ep+= /[\W]/.test(e.target.value) ? 1 : 0;
+                ep+= e.target.value.length >= 6 ? 1 : 0;
+        
+                if (ep === 5){
+                    e.target.classList.add("is-valid");
+                    e.target.classList.remove("is-invalid");
+                } else {
+                    e.target.classList.add("is-invalid");
+                }
+            } else {
+                password.innerHTML = '<i>Your Password</i>';
+            }
+        })
+    })
+})
+FName.addEventListener("keyup", e => {
     if(e.target.value) {
-        username.textContent = e.target.value.toLowerCase()
-        if (up.test(e.target.value)) {
-            eu = true
-            e.target.classList.add("is-valid")
-            e.target.classList.remove("is-invalid")
+        Fname.textContent = e.target.value.toLowerCase();
+        if (re.test(e.target.value)) {
+            e.target.classList.add("is-valid");
+            e.target.classList.remove("is-invalid");
         } else {
-            e.target.classList.add("is-invalid")
+            e.target.classList.add("is-invalid");
         }
     } else {
-        username.innerHTML = '<i>Please write something</i>'
+        Fname.innerHTML = '<i>Your First Name</i>';
     }
 })
-
-form.password.addEventListener("keyup", e => {
+LName.addEventListener("keyup", e => {
     if(e.target.value) {
-        password.textContent = "*".repeat(e.target.value.length)
-
-        ep = 0
-        ep+= /[a-z]/.test(e.target.value) ? 1 : 0;
-        ep+= /[A-Z]/.test(e.target.value) ? 1 : 0;
-        ep+= /[0-9]/.test(e.target.value) ? 1 : 0;
-        ep+= /[\W]/.test(e.target.value) ? 1 : 0;
-        ep+= e.target.value.length >= 6 ? 1 : 0;
-
-        if (ep === 5){
-            e.target.classList.add("is-valid")
-            e.target.classList.remove("is-invalid")
+        Lname.textContent = e.target.value.toLowerCase();
+        if (re.test(e.target.value)) {
+            e.target.classList.add("is-valid");
+            e.target.classList.remove("is-invalid");
         } else {
-            e.target.classList.add("is-invalid")
+            e.target.classList.add("is-invalid");
         }
     } else {
-        password.innerHTML = '<i>Please select a password</i>'
+        Lname.innerHTML = '<i>Your Last Name</i>';
     }
 })
 
-checkbox.addEventListener("click", e => {
-    if (myinput.type === "password") {
-        myinput.type = "text";
-    } 
-    else {
-        myinput.type = "password";
-    }
+closeBtns.forEach(closeBtn => {
+    closeBtn.addEventListener("click", e => {
+        signUpForm.style.display = "none";
+        logInForm.style.display = "none";
+        layout.style.display = "none";
+    })
+})
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("click", e => {
+        passwordinputs.forEach(passwordinput => {
+            if (passwordinput.type === "password") {
+                passwordinput.type = "text";
+            } 
+            else {
+                passwordinput.type = "password";
+            }
+        })
+    })
 })
