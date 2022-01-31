@@ -1,8 +1,4 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+
 body {
     overflow-x: hidden;
 }
@@ -13,7 +9,10 @@ h1 {
     font-size: 5vmin;
 }
 p {
-    font-size: 3vmin;
+    font-size: 4vmin;
+}
+li {
+    font-size: 2.5vmin;
 }
 @media only screen and (max-width: 450px){
     p {
@@ -32,15 +31,8 @@ p {
     background-color: #18181b;
     border-radius: 10px;
     padding: 3rem 2rem;
-    animation: appear .5s;
-}
-@keyframes appear {
-    0% {
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1);
-    }
+    animation: fadeInDown cubic-bezier(0, 0.62, 0.46, 0.98);
+    animation-duration: 0.8s;
 }
 
 .buttons {
@@ -105,10 +97,10 @@ svg {
     background-color: #822fff;
     position: absolute;
     bottom: 10%;
-    margin: 0 10px;
+    margin: -10px 10px;
     padding: 5px;
     border-radius: 5px;
-    animation: move 6s infinite;
+    animation: move 6s ease-in-out infinite;
 }
 .center {
     display: flex;
@@ -125,23 +117,16 @@ svg {
         animation: none;
     }
 }
-.tire {
-    background-image: url(../media/tire.svg);
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    user-select: none;
-}
-.second-tire {
-    background-image: url(../media/tire.svg);
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    user-select: none;
+.second-tire {  
     left: 420px;
 }
 .tire,
 .second-tire {
+    width: 20px;
+    height: 20px;
+    background-image: url(../media/tire.svg);
+    position: absolute;
+    user-select: none;
     animation: rotateTires 2s infinite;
 }
 @keyframes move {

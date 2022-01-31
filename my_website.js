@@ -24,6 +24,10 @@ window.onscroll = () => {
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height) * 100;
     document.getElementById("myBar").style.width = scrolled + "%";
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        scrolled = 100;
+        // for fixing bug, because of mobile Chrome search bar
+    }
 };
 
 var i = 0;
