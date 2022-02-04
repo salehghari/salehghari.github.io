@@ -23,12 +23,16 @@ window.onscroll = () => {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height) * 100;
-    document.getElementById("myBar").style.width = scrolled + "%";
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         scrolled = 100;
         // for fixing bug, because of mobile Chrome search bar
     }
+    document.getElementById("myBar").style.width = scrolled + "%";
 };
+
+if (window.scrollY) {
+    window.scroll(0, 0);  // reset the scroll position to the top left of the document.
+}
 
 var i = 0;
 var txt = "Saleh Ghari";
