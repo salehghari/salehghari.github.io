@@ -3,6 +3,18 @@ const sideMenu = document.querySelector(".sideMenu");
 const label = document.querySelector("#label");
 const myName = document.querySelector("#myName");
 const myProfession = document.querySelector("#myProfession");
+const body = document.querySelector("body");
+
+body.classList = "disableScrolling"; // For loading effect
+
+function loading() {
+    const loading = document.querySelector("#loading");
+    loading.style.display = "none";
+    body.classList = "";
+}
+window.addEventListener("load", e => {
+    loading()
+});
 
 menuIcon.addEventListener("click", e => {
     if (menuIcon.checked == true){

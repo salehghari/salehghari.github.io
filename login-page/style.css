@@ -100,7 +100,7 @@ svg {
     margin: -10px 10px;
     padding: 5px;
     border-radius: 5px;
-    animation: move 6s ease-in-out infinite;
+    animation: move 6s linear infinite;
 }
 .center {
     display: flex;
@@ -127,20 +127,17 @@ svg {
     background-image: url(../media/tire.svg);
     position: absolute;
     user-select: none;
-    animation: rotateTires 2s infinite;
+    animation: rotateTires 2s linear infinite;
 }
 @keyframes move {
     0% {
-        transform: translateX(0px);
-    }
-    33%{
         transform: translateX(200px);
     }
-    66% {
+    50%{
         transform: translateX(-200px);
     }
-    100%{
-        transform: translateX(0px);
+    100% {
+        transform: translateX(200px);
     }
 }
 @keyframes rotateTires {

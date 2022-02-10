@@ -18,11 +18,19 @@ ul {
     display: flex;
     margin-bottom: 5%;
 }
-.threeDCard {
-    background-color: rgb(224, 224, 224);
+.threeDCard,
+.noteBox {
     padding: 2%;
     border-radius: 15px;
+}
+.threeDCard {
+    background-color: rgb(224, 224, 224);
     box-shadow: 0px 0px 30px rgb(190, 190, 190);
+}
+
+.noteBox {
+    background-color: rgb(255, 85, 85);
+    box-shadow: 0px 0px 30px rgb(255, 67, 67);
 }
 .weather-wrapper {
     height: 13rem;
