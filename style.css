@@ -266,6 +266,11 @@ input[type="checkbox"]:checked~span:nth-of-type(3) {
     .swipeText {
         display: block;
     }
+    .brandLogoImg {
+        width: 45.6px;
+        height: 56px;
+        margin-left: 10px;
+    }
 }
 @media screen and (min-width: 900px) {
     .x.container > div {
@@ -558,4 +563,8 @@ span::selection,
 .disableScrolling {
     overflow-y: hidden;
     position: fixed;
+}
+.brandLogo {
+    width: 20%;
+    margin-top: 5px;
 }
